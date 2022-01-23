@@ -1,0 +1,62 @@
+---
+kind: pipeline
+type: docker
+name: Pull Request
+
+trigger:
+  event:
+    - pull_request
+
+steps:
+  - name: Pre-commit tests
+    image: python:3.9-alpine
+    commands:
+    - apk add git
+    - pip3 install pre-commit
+    - pre-commit run --all-files
+---
+kind: pipeline
+type: docker
+name: Build
+
+trigger:
+  ref:
+  - refs/heads/main
+  - refs/tags/**
+
+steps:
+- name: build
+  image: python:3.9
+  commands:
+  - python3 setup.py sdist bdist_wheel
+
+- name: checksum
+  image: alpine
+  commands:
+  - cd dist/ && sha256sum * > ../sha256sum.txt
+
+- name: pypi_publish
+  image: plugins/pypi
+  settings:
+    username: 
+      from_secret: pypi_username
+    password: 
+      from_secret: pypi_password
+  when:
+    ref:
+    - refs/tags/**
+
+- name: publish-github
+  image: plugins/github-release
+  settings:
+    api_key:
+      from_secret: github_token
+    files:
+    - dist/*
+    - sha256sum.txt
+    note: CHANGELOG.md
+    overwrite: true
+    title: ${DRONE_TAG}
+  when:
+    ref:
+    - refs/tags/**

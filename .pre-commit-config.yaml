@@ -1,0 +1,32 @@
+exclude: .drone.yml
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-docstring-first
+        exclude: .vscode/.*
+    -   id: debug-statements
+        language_version: python3
+    -   id: requirements-txt-fixer
+    -   id: flake8
+-   repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v1.5.7
+    hooks:
+    -   id: autopep8
+-   repo: https://github.com/timothycrosley/isort
+    rev: 5.9.2
+    hooks:
+    -   id: isort
+        args: [--atomic]
+        types: [python]
+        verbose: true
+-   repo: https://github.com/asottile/pyupgrade
+    rev: v2.21.2
+    hooks:
+    -   id: pyupgrade
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.910
+    hooks:
+    -   id: mypy

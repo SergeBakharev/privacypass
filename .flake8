@@ -1,0 +1,9 @@
+[flake8]
+# W293 blank line contains whitespace
+# W504 line break after binary operator
+# W291 trailing whitespace
+# F403 unable to detect undefined names
+# F405 may be undefined, or defined from star imports
+ignore = W293, W504, F403, F405
+max-line-length = 160
+max-complexity = 30
