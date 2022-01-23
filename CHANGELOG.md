@@ -3,10 +3,13 @@ Notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
+- privacypass: redemption_header()
 ### Changed
+- README example to use redemption_header instead of redemption_token
 ### Deprecated
 ### Removed
 ### Fixed
+- Docstring for redemption_token
 ### Security
 
 
