@@ -1,0 +1,8 @@
+.vscode/
+__pycache__
+__pycache__/*
+.mypy_cache
+.eggs/
+dist/
+build/
+privacypass.egg-info/
