@@ -17,12 +17,26 @@ def _get_mac_key(token):
     return derive_key(token.get('signed').get('unblindedPoint'), token.get('input'))
 
 
-def redemption_token(token, url, method):
+def redemption_token(token, url: str, method: str) -> str:
+    """Creates a request base64 string of HMAC("hash_request_binding", <derived-key>, <shared-info>)
+
+Args:
+    token: A single Privacy Pass CF-Token dict
+    url: URL being requested
+    method: HTTP verb that will be used with the token. Eg. GET or POST
+
+Return:
+    str: Redemption token
+    """
     key = _get_mac_key(token)
 
     parsed_uri = urlparse(url)
+
     hostname = parsed_uri.hostname
     path = parsed_uri.path
+
+    if hostname is None:
+        raise ValueError("Valid URL must be provided")
 
     binding = create_request_binding(key, [bytes(hostname, 'utf-8'), bytes(f"{method} {path}", 'utf-8')])
 

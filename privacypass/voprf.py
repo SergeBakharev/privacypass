@@ -6,18 +6,19 @@ from cryptography.hazmat.primitives.asymmetric import ec
 from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
 
 # Verifiable Oblivious Pseudorandom Function
+# Ported from https://github.com/privacypass/challenge-bypass-extension/blob/master/src/background/voprf.js
 
 
-def derive_key(unblindedPoint, token):
-    """
-Derives the shared key used for redemption MACs
+def derive_key(unblindedPoint: str, token: bytearray) -> bytes:
+    """Derives the shared key used for redemption MACs
 
-Input:
-unblindedPoint - Signed curve point associated with token
-token - client-generated token data
+Args:
+    unblindedPoint: Signed curve point associated with token
+    token: client-generated token data
 
-Return: bytes of derived key
-    """
+Returns:
+    bytes: of derived key
+"""
 
     tagBytes = bytes('hash_derive_key', 'utf-8')
 
@@ -37,7 +38,17 @@ Return: bytes of derived key
     return keyBytes
 
 
-def create_request_binding(key, data):
+def create_request_binding(key: bytes, data: list):
+    """Creates a request base64 string of HMAC("hash_request_binding", <derived-key>, <shared-info>)
+
+Args:
+    key: derived-key
+    data: shared-info
+
+Return:
+    bytes: Resulting HMAC digest
+    """
+
     tagBits = bytes('hash_request_binding', 'utf-8')  # the exact bytes of the string "hash_request_binding"
     hash = sha256
 
