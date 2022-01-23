@@ -25,6 +25,15 @@ trigger:
   - refs/tags/**
 
 steps:
+
+- name: fetch tags
+  image: alpine/git
+  commands:
+  - git fetch --tags
+  when:
+    ref:
+    - refs/tags/**
+
 - name: build
   image: python:3.9
   commands:
