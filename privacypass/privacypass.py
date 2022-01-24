@@ -61,5 +61,5 @@ Args:
 Return:
     dict: Header with challenge-bypass-token token
     """
-    redemption_token(token=token, url=url, method=method)
-    return {'challenge-bypass-token': redemption_token}
+    token = redemption_token(token=token, url=url, method=method)
+    return {'challenge-bypass-token': token}
