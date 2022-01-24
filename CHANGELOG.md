@@ -9,6 +9,10 @@ Notable changes to this project will be documented in this file.
 ### Fixed
 ### Security
 
+## [0.2.1]
+### Fixed
+- redemption_header() returns token with value
+
 ## [0.2.0]
 ### Added
 - privacypass: redemption_header()
