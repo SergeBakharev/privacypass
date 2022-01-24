@@ -18,7 +18,7 @@ def _get_mac_key(token):
 
 
 def redemption_token(token, url: str, method: str) -> str:
-    """Creates a request base64 string of HMAC("hash_request_binding", <derived-key>, <shared-info>)
+    """Creates a Privacy Pass redemption token
 
 Args:
     token: A single Privacy Pass CF-Token dict
@@ -48,3 +48,18 @@ Return:
     json_string = json.dumps(redemption_dict, separators=(',', ':'))
     redemption_token = b64encode(json_string.encode('utf-8'))
     return redemption_token.decode('utf-8')  # return str not bytes
+
+
+def redemption_header(token, url: str, method: str) -> dict:
+    """Returns a request header with appropriate redemption token
+
+Args:
+    token: A single Privacy Pass CF-Token dict
+    url: URL being requested
+    method: HTTP verb that will be used with the token. Eg. GET or POST
+
+Return:
+    dict: Header with challenge-bypass-token token
+    """
+    redemption_token(token=token, url=url, method=method)
+    return {'challenge-bypass-token': redemption_token}
