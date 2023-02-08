@@ -7,5 +7,5 @@
 
 -i https://pypi.org/simple
 cffi==1.15.0
-cryptography==36.0.1
+cryptography==38.0.3
 pycparser==2.21
