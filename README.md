@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![image](https://img.shields.io/pypi/pyversions/privacypass.svg)](https://pypi.org/project/privacypass/)
 
-A Python module implementing the Privacy Pass protocol. Privacy Pass is supported by Cloudflare (and is in the process of becoming standardised by the IETF) to enable users to redeem passes instead of having to solve CAPTCHAs to visit protected websites. This can be useful when programmatically interacting with such sites, as CAPTCHAs are intentionally used to tell Computers and Humans Apart.
+Bypass CloudFlare CAPTCHAs programatically without any tricks or brittle hacks. This Python module enables Privacy Pass token redemption. Privacy Pass is a system for pre-solving CAPTCHAs in exchange for passes. Redeem passes instead of having to solve CAPTCHAs to visit protected websites. This can be useful for low volume programaticly interacting with sites protected against non-human access. Privacy Pass is supported by Cloudflare and is in the process of becoming standardised by the IETF.
 
 ## Installation
 
@@ -16,7 +16,7 @@ Alternatively, clone this repository and run python setup.py install.
 ## Dependencies
 
 * Python >= 3.9
-* [cryptography](https://cryptography.io/) >= 36.0.1
+* [cryptography](https://cryptography.io/) >= 42.0.4
 
 ## Usage
 
