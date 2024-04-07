@@ -9,7 +9,7 @@ Notable changes to this project will be documented in this file.
 ### Fixed
 ### Security
 
-## [0.2.1]
+## [0.2.2]
 ### Security
 - Updated cryptography library to 42.0.4
 
@@ -35,6 +35,8 @@ Bare minimum of [Privacy Pass protocol](https://privacypass.github.io/) to redee
 - docs: Firefox Token extraction steps in README
 - docs: Usage example
 
-[Unreleased]: https://github.com/sergebakharev/privacypass/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/sergebakharev/privacypass/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/sergebakharev/privacypass/releases/tag/v0.2.2
+[0.2.1]: https://github.com/sergebakharev/privacypass/releases/tag/v0.2.1
 [0.2.0]: https://github.com/sergebakharev/privacypass/releases/tag/v0.2.0
 [0.1.0]: https://github.com/sergebakharev/privacypass/releases/tag/v0.1.0
