@@ -10,6 +10,10 @@ Notable changes to this project will be documented in this file.
 ### Security
 
 ## [0.2.1]
+### Security
+- Updated cryptography library to 42.0.4
+
+## [0.2.1]
 ### Fixed
 - redemption_header() returns token with value
 
