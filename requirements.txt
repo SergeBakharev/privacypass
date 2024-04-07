@@ -5,7 +5,7 @@
 #    pipenv lock --requirements
 #
 
--i https://pypi.org/simple
-cffi==1.15.0
-cryptography==36.0.1
+-i https://pypi.org/simple/
+cffi==1.15.1
+cryptography==39.0.1
 pycparser==2.21
