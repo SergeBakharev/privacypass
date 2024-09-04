@@ -1,4 +1,4 @@
 -i https://pypi.org/simple
-cffi==1.16.0; platform_python_implementation != 'PyPy'
-cryptography==42.0.4; python_version >= '3.7'
+cffi==1.17.0; platform_python_implementation != 'PyPy'
+cryptography==43.0.1; python_version >= '3.7'
 pycparser==2.22; python_version >= '3.8'
